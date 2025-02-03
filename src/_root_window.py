@@ -22,6 +22,8 @@ class _root_window(tk.Tk):
         self.rowconfigure(2, weight=1)
         self.page1.grid(row=1, column=1)
         
+        
+        
             
                 # Create a Menu bar
         self.menu_bar = tk.Menu(self)

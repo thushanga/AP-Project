@@ -3,12 +3,20 @@ from tkinter import ttk
 from tkinter import filedialog
 from PIL import Image, ImageTk
 from datetime import datetime
+from _stock_tab import _stock_tab
 
 
 class _home_window(tk.Frame):
     
     def __init__(self,master):
         super().__init__(master)
+        
+        # Create Notebook (tab container)
+        notebook = ttk.Notebook(self)
+        notebook.pack(fill="both", expand=True)
+        
+        #notebook.add(tab2, text="Tab 2")
+        
         self.config(bg="skyblue")
         
         paned = tk.PanedWindow(self, orient="vertical")
@@ -113,6 +121,8 @@ class _home_window(tk.Frame):
             self.table.insert("", "end", values=row)
             
         paned.add(bottom_frame)
+        notebook.add(_stock_tab(self), text="Stock")
+        notebook.add(paned, text="Bill(Prescription)")
  
  
     def filter_dropdown(self, event):
